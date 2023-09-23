@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  div
+    h1= titleC
+    each category in categories
+      div
+        a(href= category.url)
+          h2= category.name
+        p= category.description
+
+        // Form for the Delete action (DELETE request)
+        form(action=`/Home/categories/${category._id}`, method='POST')
+          input(type='hidden', name='_method', value='DELETE') 
+          button(type='submit') Delete
+
+        // Form for the Update action (PUT request)
+        form(action=`/Home/categories/edit/${category._id}`, method='POST')
+          input(type='hidden', name='_method', value='PUT') 
+          button(type='submit') Update
+
+    h1=titleI
+    each item in items
+      div
+        a(href=item.url)
+          h2= item.name
+        p= item.description
+
+        // Form for the Delete action (DELETE request)
+        form(action=`/Home/items/${item._id}`, method='POST')
+          input(type='hidden', name='_method', value='DELETE') 
+          button(type='submit') Delete
+
+        // Form for the Update action (PUT request)
+        form(action=`/Home/items/edit/${item._id}`, method='POST')
+          input(type='hidden', name='_method', value='PUT') 
+          button(type='submit') Update

@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div
+    h1= titleC
+        h2= doc.name
+        p=doc.description
+        p=doc1.name
+        p=doc.price
+        p=doc.number_in_stock
+
+    form(action=`/Home/editItem/${doc._id}`, method='POST')
+        div.form-group
+            label(for='name') Item Name
+            input#name.form-control(type='text', name='name', required)
+
+        div.form-group
+            label(for='description') Description
+            textarea#description.form-control(name='description', rows='4', required)
+
+        div.form-group
+            label(for='category') Category
+            select#category.form-control(name='category', required)
+                option(value='') 
+                each category in categoryNames 
+                    option(value=category._id)= category.name 
+
+        div.form-group
+            label(for='price') Price
+            input#price.form-control(type='number', name='price', step='0.01')
+
+        div.form-group
+            label(for='stock') Number in Stock
+            input#stock.form-control(type='number', name='number_in_stock')
+
+        button.btn.btn-primary(type='submit') edit Item

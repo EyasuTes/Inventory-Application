@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    
+    div.headerContainer
+      div.home
+        h1 
+          a(href='/Home') Home
+      div.createCategory
+        h1 
+          a(href='/Home/CreateCategory') Create Category 
+      div.createItem
+        h1 
+          a(href='/Home/CreateItem') Create Item
+    block content

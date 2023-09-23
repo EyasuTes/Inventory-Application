@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Create Category
+  form(action='/Home/CreateCategory', method='POST')
+    div.form-group
+      label(for='name') Category Name
+      input#name.form-control(type='text', name='name', required)
+    div.form-group
+      label(for='description') Description
+      textarea#description.form-control(name='description', rows='4', required)
+    button.btn.btn-primary(type='submit') Create Category

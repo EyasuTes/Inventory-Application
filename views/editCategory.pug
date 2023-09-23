@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div
+    h1= titleC
+        h2= doc.name
+        p=doc.description
+    form(action=`/Home/editCategory/${doc._id}`, method='POST')
+        div.form-group
+            label(for='name') Category Name
+            input#name.form-control(type='text', name='name', required)
+        div.form-group
+            label(for='description') Description
+            textarea#description.form-control(name='description', rows='4', required)
+        button.btn.btn-primary(type='submit') Update Category
